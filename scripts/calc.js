@@ -1,3 +1,4 @@
+//basic math functions
 function add(a,b){
     return a+b;
 }
@@ -14,7 +15,7 @@ function operate(oper,firstnum,secnum){
     switch(oper){
         case "add":
             return parseInt(firstnum)+parseInt(secnum);
-            changetext("love in air");
+            inserth("love in air");
         case "subtract":
             return parseInt(firstnum)-parseInt(secnum);
         case "multiply":
@@ -23,9 +24,14 @@ function operate(oper,firstnum,secnum){
             return firstnum/secnum;
     }
 }
-function changetext(string){
-        const display = document.getElementById("display");
-        this.display.innerHTML = `<h1> ${string}</h1>`;
+//change display functions
+function clear(){
+    document.querySelector(".h1").textContent = "  ";
 }
-// main fuction would have changetext("000000000000");
-console.log(operate("add", 5 , 6));
+function insert(num){
+    document.querySelector(".h1").textContent =document.querySelector(".h1").textContent +num;
+}
+function readdisplay(){
+    value = document.querySelector(".h1").textContent;
+    return value;
+}
