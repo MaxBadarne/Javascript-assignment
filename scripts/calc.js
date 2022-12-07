@@ -28,6 +28,10 @@ function operate(oper,firstnum,secnum){
 function cleardisp(){
     document.querySelector(".h1").textContent = "";
 }
+function clearspace(){
+    document.querySelector(".h1").textContent = "";
+    document.querySelector(".h2").textContent = "";
+}
 function insert(num){
     document.querySelector(".h1").textContent =document.querySelector(".h1").textContent +num;
 }
@@ -43,36 +47,53 @@ function setdisp(num){
 function sethistory(num){
     document.querySelector(".h2").textContent = num;
 }
+function inserthistory(num){
+    document.querySelector(".h2").textContent =document.querySelector(".h2").textContent +num;
+}
+
+// LOGIK
 let num1; 
 let opr;
-function savenum1(){
+
+function savedisplay(){
     num1 = readdisplay();
+    inserthistory(num1);
+    // setnum1(readdisplay());
+    // sethistory(getnum1());
     cleardisp();
 }
-//best part, LOGIK
-/* so there should be a waiting period
-the function will have to stop at some point after taking the display number and the perator
-*/
 function takeopp(opp){
-    savenum1();
     opr = opp;
-    cleardisp();
-}
-function equals(){
-    num2 = readdisplay();
+    savedisplay();
+    }
+function calculate(num1,num2,opr){
     switch(opr){
         case "times":
-            res = multiply(num1,num2);
-            break;
+            inserthistory("*");
+            return operate("multiply", num1, num2);
         case "divi":
-            res = divide(num1,num2);
-                break;
+            inserthistory("/");
+            return operate("divide", num1, num2);
         case "minus":
-            res = subtract(num1,num2);
-            break;
+            inserthistory("-");
+            return operate("subtract", num1, num2);
         case "plus":
-            res = add(num1,num2);
-            break;
+            inserthistory("+");
+            return operate("add", num1, num2);
     }
-    setdisp(res)
+}
+function equals(){
+    let num2 = readdisplay();
+    res = calculate(num1,num2,opr);
+    inserthistory(readdisplay());
+    // inserthistory("=");
+    setdisp(res);
+    num1 = res;
+}
+//setters and getters
+function getnum1(){
+    return this.num1;
+}
+function setnum1(number){
+    num1 = number;
 }
