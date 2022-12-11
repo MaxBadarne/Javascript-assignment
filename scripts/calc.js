@@ -15,7 +15,6 @@ function operate(oper,firstnum,secnum){
     switch(oper){
         case "add":
             return parseInt(firstnum)+parseInt(secnum);
-            inserth("love in air");
         case "subtract":
             return parseInt(firstnum)-parseInt(secnum);
         case "multiply":
@@ -89,6 +88,7 @@ function equals(){
     res = calculate(num1,num2,opr);
     inserthistory(readdisplay());
     // inserthistory("=");
+    
     setdisp(res);
     num1 = res;
 }
