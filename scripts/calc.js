@@ -26,6 +26,7 @@ function operate(oper,firstnum,secnum){
             return firstnum/secnum;
     }
 }
+let count = 0;
 let number_1;
 let operation = "default";        //the operation method used in the calculation
 
@@ -69,6 +70,8 @@ function back_space(){
     set_display(num);
 }
 //                                      LOGIK
+//TODO replace the previous results with ANS maybe ?
+//TODO float numbers, probably will have to disable the button after the first one
 function check_if_non_NAN(){
     x = read_display();
     if(x !== x) {return false;}
@@ -99,6 +102,9 @@ function calculate(number_1,number_2,operation){
     }
 }
 function equals(){
+    if(count > 6){
+        set_history("");
+    }
     let number_2 = read_display();
     if(operation== "divi" && number_2 == 0 ){
         set_display(5318008);
@@ -111,6 +117,7 @@ function equals(){
         insert_history("=");
         set_display(res);
         number_1 = res;
+        count++;
     }
     else{
         set_display("")
