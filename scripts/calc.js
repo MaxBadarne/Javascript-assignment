@@ -28,6 +28,7 @@ function clear_space(){
     document.querySelector(".h11").value = "";
     document.querySelector(".h2").textContent = "";
     number_1 = 0;
+    count= 0;
 }
 function insert_display(num){
     document.querySelector(".h11").value = document.querySelector(".h11").value + num;
