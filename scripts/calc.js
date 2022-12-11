@@ -12,6 +12,9 @@ function divide(a,b){
     return a/b;
 }
 function operate(oper,firstnum,secnum){
+    if(secnum < 0){
+        secnum =secnum*-1;
+    }
     switch(oper){
         case "add":
             return parseInt(firstnum)+parseInt(secnum);
@@ -25,7 +28,7 @@ function operate(oper,firstnum,secnum){
 }
 let number_1;
 let operation = "default";        //the operation method used in the calculation
-let registed_equal = true;
+
 //                                  change display functions
 function clear_display(){
     document.querySelector(".h11").value = "";
@@ -98,16 +101,14 @@ function calculate(number_1,number_2,operation){
 function equals(){
     let number_2 = read_display();
     if(operation== "divi" && number_2 == 0 ){
-        set_display("Mathmatical Error!");
-        set_history("");
+        set_display(5318008);
+        set_history("ERROR! \n Cannot devide by 0");
         return 0;
     }
     if(check_if_non_NAN()){
         res = calculate(number_1,number_2,operation);
         insert_history(read_display());
-        if(registed_equal){
-            insert_history("=");
-        }
+        insert_history("=");
         set_display(res);
         number_1 = res;
     }
@@ -123,3 +124,27 @@ function get_number_1(){
 function set_number_1(number){
     number_1 = number;
 }
+//                              Key listener
+function key_pressed(E) {
+    if (E.code =="Space") {
+        equals();
+    }
+    if (E.code =="NumpadMultiply") { //  *
+        take_opperation('times');
+        back_space();
+    }
+    if (E.code =="NumpadDivide") {     // /
+        take_opperation('divi'); 
+        back_space();
+    }
+    if (E.code =="NumpadSubtract") { // - 
+        take_opperation('minus');
+        clear_display();
+    }
+    if (E.code =="NumpadAdd") { //  +
+        take_opperation('plus');
+        back_space();
+    }
+ }
+
+

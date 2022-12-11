@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./scripts/calc.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 <body>
     <div name ="maindiv" class="maindiv" >
         <form name="form1">
-            <div class="h2">
-                <h2 ></h2>
-            </div>
-            <input type="text" class="h11" maxlength="10">
+                <h2 class="h2"></h2>
+            <input type="number" class="h11" 
+            onkeypress="key_pressed(event)" pattern="\d*" maxlength="10">
         </form>
         <div>
             <button onclick='clear_display();'>C</button>
@@ -37,7 +36,7 @@
             <button onclick="insert_display(1);">1</button>
             <button onclick="insert_display(2);">2</button>
             <button onclick="insert_display(3);">3</button>
-            <button onclick="take_opperation('minus');">-</button>
+            <button onclick="take_opperation('minus'); clear_display();">-</button>
         </div>
         <div class="numdiv">
             <button onclick="equals();" class="equals">=</button>
@@ -45,8 +44,6 @@
             <button>.</button>
             <button onclick="take_opperation('plus');">+</button>
         </div>
-       
-
     </div>
 </body>
 </html>
