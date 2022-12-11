@@ -1,20 +1,10 @@
 //basic math functions
-function add(a,b){
-    return a+b;
-}
-function subtract(a,b){
-    return a-b;
-}
-function multiply(a,b){
-    return a*b;
-}
-function divide(a,b){
-    return a/b;
-}
+function add(a,b){return a+b;}
+function subtract(a,b){return a-b;}
+function multiply(a,b){return a*b;}
+function divide(a,b){return a/b;}
 function operate(oper,firstnum,secnum){
-    if(secnum < 0){
-        secnum =secnum*-1;
-    }
+    if(secnum < 0){secnum =secnum*-1;}
     switch(oper){
         case "add":
             return parseInt(firstnum)+parseInt(secnum);
@@ -79,14 +69,13 @@ function check_if_non_NAN(){
 }
 function take_opperation(opp){
     operation = opp;
-    if( check_if_non_NAN()){
+    if(check_if_non_NAN()){
         save_display();
     }
-    }
+}
 function calculate(number_1,number_2,operation){
     switch(operation){
-        case "default":
-            return number_2;
+        case "default": return number_2;
         case "times":
             insert_history("*");
             return operate("multiply", number_1, number_2);
@@ -102,9 +91,7 @@ function calculate(number_1,number_2,operation){
     }
 }
 function equals(){
-    if(count > 6){
-        set_history("");
-    }
+    if(count > 6){set_history("");}
     let number_2 = read_display();
     if(operation== "divi" && number_2 == 0 ){
         set_display(5318008);
@@ -119,9 +106,7 @@ function equals(){
         number_1 = res;
         count++;
     }
-    else{
-        set_display("")
-    }
+    else{set_display("")}
 }
 //                              setters and getters
 //either i dont know how to implement them in js or they just dont work!!
@@ -132,7 +117,7 @@ function set_number_1(number){
     number_1 = number;
 }
 //                              Key listener
-function key_pressed(E) {
+function key_pressed(E){
     if (E.code =="Space") {
         equals();
     }
@@ -152,6 +137,4 @@ function key_pressed(E) {
         take_opperation('plus');
         back_space();
     }
- }
-
-
+}

@@ -23,7 +23,7 @@ button {
 .h2{
     width: 200px;
     height: 15px;
-    font-size: small;
+    font-size: smaller;
     margin-left: 15px;
     margin-bottom: 30px;
 }
