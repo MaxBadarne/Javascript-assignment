@@ -91,7 +91,10 @@ function calculate(number_1,number_2,operation){
     }
 }
 function equals(){
-    if(count > 6){set_history("");}
+    if(count > 4){
+        set_history("");
+        count=0;
+    }
     let number_2 = read_display();
     if(operation== "divi" && number_2 == 0 ){
         set_display(5318008);
