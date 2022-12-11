@@ -23,80 +23,93 @@ function operate(oper,firstnum,secnum){
             return firstnum/secnum;
     }
 }
+let num1;
+let opr = "default";        //the operation method used in the calculation
+let registed_equal = true;
 //change display functions
-function cleardisp(){
-    document.querySelector(".h1").textContent = "";
+function clear_display(){
+    document.querySelector(".h11").value = "";
 }
-function clearspace(){
-    document.querySelector(".h1").textContent = "";
+function clear_space(){
+    document.querySelector(".h11").value = "";
     document.querySelector(".h2").textContent = "";
 }
-function insert(num){
-    document.querySelector(".h1").textContent =document.querySelector(".h1").textContent +num;
+function insert_display(num){
+    document.querySelector(".h11").value = document.querySelector(".h11").value + num;
 }
-function readdisplay(){
-    value = document.querySelector(".h1").textContent;
+function read_display(){
+    value = document.querySelector(".h11").value;
     value.trim();
     value = parseInt(value)
     return value;
 }
-function setdisp(num){
-    document.querySelector(".h1").textContent = num;
+function set_display(num){
+    document.querySelector(".h11").value = num;
 }
-function sethistory(num){
+function set_history(num){
     document.querySelector(".h2").textContent = num;
 }
-function inserthistory(num){
+function insert_history(num){
     document.querySelector(".h2").textContent =document.querySelector(".h2").textContent +num;
 }
-
-// LOGIKe
-//TODO when number greater than  (10) remove everything but those 10 numers (add a .)
-//TODO add the operator in the history
-//TODO error messege when dividing by zero
-let num1;
-let opr;        //the operation method used in the calculation
-function savedisplay(){
-    num1 = readdisplay();
-    inserthistory(num1);
-    // setnum1(readdisplay());
-    // sethistory(getnum1());
-    cleardisp();
+function save_display(){
+    num1 = read_display();
+    insert_history(num1);
+    // setnum1(read_display());
+    // set_history(getnum1());
+    clear_display();
 }
-function takeopp(opp){
+// LOGIK
+//TODO error messege when dividing by zero
+function check_if_non_NAN(){
+    x = read_display();
+    if(x !== x) {return false;}
+    else {return true;}
+}
+function take_opperation(opp){
     opr = opp;
-    savedisplay();
+    if( check_if_non_NAN()){
+        save_display();
+    }
     }
 function calculate(num1,num2,opr){
     switch(opr){
+        case "default":
+            return num2;
         case "times":
-            inserthistory("*");
+            insert_history("*");
             return operate("multiply", num1, num2);
         case "divi":
-            inserthistory("/");
+            insert_history("/");
             return operate("divide", num1, num2);
         case "minus":
-            inserthistory("-");
+            insert_history("-");
             return operate("subtract", num1, num2);
         case "plus":
-            inserthistory("+");
+            insert_history("+");
             return operate("add", num1, num2);
     }
 }
 function equals(){
-    let num2 = readdisplay();
-    res = calculate(num1,num2,opr);
-    inserthistory(readdisplay());
-    // inserthistory("=");
-    
-    setdisp(res);
-    num1 = res;
+    let num2 = read_display();
+    if(check_if_non_NAN()){
+        res = calculate(num1,num2,opr);
+        insert_history(read_display());
+        if(registed_equal){
+            insert_history("=");
+        }
+        set_display(res);
+        num1 = res;
+    }
+    else{
+        set_display("")
+    }
 }
 //setters and getters
 //either i dont know how to implement them in js or they just dont work!!
-function getnum1(){
+function get_num1(){
     return this.num1;
 }
-function setnum1(number){
+function set_num1(number){
     num1 = number;
 }
