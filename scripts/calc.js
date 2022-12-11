@@ -23,16 +23,17 @@ function operate(oper,firstnum,secnum){
             return firstnum/secnum;
     }
 }
-let num1;
-let opr = "default";        //the operation method used in the calculation
+let number_1;
+let operation = "default";        //the operation method used in the calculation
 let registed_equal = true;
-//change display functions
+//                                  change display functions
 function clear_display(){
     document.querySelector(".h11").value = "";
 }
 function clear_space(){
     document.querySelector(".h11").value = "";
     document.querySelector(".h2").textContent = "";
+    number_1 = 0;
 }
 function insert_display(num){
     document.querySelector(".h11").value = document.querySelector(".h11").value + num;
@@ -53,63 +54,72 @@ function insert_history(num){
     document.querySelector(".h2").textContent =document.querySelector(".h2").textContent +num;
 }
 function save_display(){
-    num1 = read_display();
-    insert_history(num1);
-    // setnum1(read_display());
-    // set_history(getnum1());
+    number_1 = read_display();
+    insert_history(number_1);
+    // setnumber_1(read_display());
+    // set_history(getnumber_1());
     clear_display();
 }
-// LOGIK
-//TODO error messege when dividing by zero
+function back_space(){
+    num = document.querySelector(".h11").value
+    num = num.substring(0, num.length - 1);
+    set_display(num);
+}
+//                                      LOGIK
 function check_if_non_NAN(){
     x = read_display();
     if(x !== x) {return false;}
     else {return true;}
 }
 function take_opperation(opp){
-    opr = opp;
+    operation = opp;
     if( check_if_non_NAN()){
         save_display();
     }
     }
-function calculate(num1,num2,opr){
-    switch(opr){
+function calculate(number_1,number_2,operation){
+    switch(operation){
         case "default":
-            return num2;
+            return number_2;
         case "times":
             insert_history("*");
-            return operate("multiply", num1, num2);
+            return operate("multiply", number_1, number_2);
         case "divi":
             insert_history("/");
-            return operate("divide", num1, num2);
+            return operate("divide", number_1, number_2);
         case "minus":
             insert_history("-");
-            return operate("subtract", num1, num2);
+            return operate("subtract", number_1, number_2);
         case "plus":
             insert_history("+");
-            return operate("add", num1, num2);
+            return operate("add", number_1, number_2);
     }
 }
 function equals(){
-    let num2 = read_display();
+    let number_2 = read_display();
+    if(operation== "divi" && number_2 == 0 ){
+        set_display("Mathmatical Error!");
+        set_history("");
+        return 0;
+    }
     if(check_if_non_NAN()){
-        res = calculate(num1,num2,opr);
+        res = calculate(number_1,number_2,operation);
         insert_history(read_display());
         if(registed_equal){
             insert_history("=");
         }
         set_display(res);
-        num1 = res;
+        number_1 = res;
     }
     else{
         set_display("")
     }
 }
-//setters and getters
+//                              setters and getters
 //either i dont know how to implement them in js or they just dont work!!
-function get_num1(){
-    return this.num1;
+function get_number_1(){
+    return this.number_1;
 }
-function set_num1(number){
-    num1 = number;
+function set_number_1(number){
+    number_1 = number;
 }
