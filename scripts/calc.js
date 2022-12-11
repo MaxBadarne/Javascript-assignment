@@ -51,10 +51,12 @@ function inserthistory(num){
     document.querySelector(".h2").textContent =document.querySelector(".h2").textContent +num;
 }
 
-// LOGIK
-let num1; 
-let opr;
-
+// LOGIKe
+//TODO when number greater than  (10) remove everything but those 10 numers (add a .)
+//TODO add the operator in the history
+//TODO error messege when dividing by zero
+let num1;
+let opr;        //the operation method used in the calculation
 function savedisplay(){
     num1 = readdisplay();
     inserthistory(num1);
@@ -91,6 +93,7 @@ function equals(){
     num1 = res;
 }
 //setters and getters
+//either i dont know how to implement them in js or they just dont work!!
 function getnum1(){
     return this.num1;
 }
