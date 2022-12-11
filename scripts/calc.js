@@ -91,7 +91,7 @@ function calculate(number_1,number_2,operation){
     }
 }
 function equals(){
-    if(count > 4){
+    if(count > 3){
         set_history("");
         count=0;
     }
