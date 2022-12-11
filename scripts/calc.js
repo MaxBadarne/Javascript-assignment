@@ -110,6 +110,7 @@ function equals(){
         number_1 = res;
         count++;
     }
+    
     else{set_display("")}
 }
 //                              setters and getters

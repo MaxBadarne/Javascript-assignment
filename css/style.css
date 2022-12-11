@@ -21,9 +21,9 @@ button {
     margin-bottom: 10px;
 }
 .h2{
-    width: 200px;
+    width: 100px;
     height: 15px;
     font-size: smaller;
-    margin-left: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    max-width: 150px;
 }
