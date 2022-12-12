@@ -78,6 +78,9 @@ function check_if_non_NAN(){
     if(x !== x) {return false;}
     else {return true;}
 }
+function isFloat(n){
+return Number(n) === n && n % 1 !== 0;
+}
 function take_opperation(opp){
     operation = opp;
     if(check_if_non_NAN()){
@@ -116,7 +119,9 @@ function equals(){
         res = calculate(number_1,number_2,operation);
         insert_history(read_display());
         insert_history("=");
-        res = res.toFixed(4);
+        if(isFloat(res)){
+            res = res.toFixed(4);
+        }
         set_display(res);
         number_1 = res;
         count++;
