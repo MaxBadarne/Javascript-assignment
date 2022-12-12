@@ -106,6 +106,7 @@ function equals(){
         res = calculate(number_1,number_2,operation);
         insert_history(read_display());
         insert_history("=");
+        res = res.toFixed(4);
         set_display(res);
         number_1 = res;
         count++;
