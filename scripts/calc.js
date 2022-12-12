@@ -42,6 +42,16 @@ function read_display(){
 function set_display(num){
     document.querySelector(".h11").value = num;
 }
+function insert_display0(num){
+    temp = read_display();
+    console.log(temp);
+    if(temp == "0"){
+        return 0 ;
+    }
+    else{
+        document.querySelector(".h11").value = document.querySelector(".h11").value + num;
+    }
+}
 function set_history(num){
     document.querySelector(".h2").textContent = num;
 }
@@ -111,7 +121,6 @@ function equals(){
         number_1 = res;
         count++;
     }
-    
     else{set_display("")}
 }
 //                              setters and getters
