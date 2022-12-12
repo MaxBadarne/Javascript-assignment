@@ -92,8 +92,8 @@ function calculate(number_1,number_2,operation){
     }
 }
 function equals(){
-    if(count > 3){
-        set_history("");
+    if(count > 2){
+        set_history("ANS");
         count=0;
     }
     let number_2 = read_display();
