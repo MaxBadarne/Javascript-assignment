@@ -1,29 +1,50 @@
 .maindiv{
-    border-width: 10px;
-    border-color:rebeccapurple;
+    border-width: 15px;
+    border-color:#c5d3ff;
+    border-radius: 15px;
+    background-color: #ebebfc;
     border-style: solid;
     text-align: center;
-    width: 220px;
+    width: 50%;
+    height: 650;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 10px;
     margin-left: 20%;
+    margin-top: 10%;
 }
 button {
-    height: 35px;
-    width: 35px;
+    background-color: rgb(138, 173, 194);
+    border-radius: 8px;
+    height: 80px;
+    width: 80px;
     margin-top: 10px;
+    font-size: 34px;
 }
+
 .display{
-    width: 145px;
+    width: 300px;
+    height: auto;
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
 .h2{
     width: 100px;
-    height: 15px;
-    font-size: smaller;
-    margin-bottom: 20px;
+    text-align: center;
+    height: 30px;
+    font-size:42px;
+    padding-left: 20%;
+    padding-right: 10%;
+    margin-bottom: 50px;
     max-width: 150px;
+}
+.display_screen{
+    text-align: center;
+}
+.first_display{
+    font-size: 42px;
+    width: 310px;
+    height: 70px;
+    padding-left: 20px;
 }

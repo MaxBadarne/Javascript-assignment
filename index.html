@@ -10,11 +10,11 @@
 </head>
 <body>
     <div name ="maindiv" class="maindiv" >
-        <form name="form1">
+        <div name="form1" class="display_screen">
                 <h2 class="h2"></h2>
-            <input type="number" class="h11" 
+            <input  class="h11 first_display" 
             onkeypress="key_pressed(event)" pattern="\d*" maxlength="10">
-        </form>
+        </div>
         <div>
             <button onclick='clear_display();'>C</button>
             <button onclick='clear_space();'>AC</button>
@@ -36,7 +36,7 @@
             <button onclick="insert_display(1);">1</button>
             <button onclick="insert_display(2);">2</button>
             <button onclick="insert_display(3);">3</button>
-            <button onclick="take_opperation('minus'); clear_display();">-</button>
+            <button onclick="take_opperation('minus');">-</button>
         </div>
         <div class="numdiv">
             <button onclick="equals();" class="equals">=</button>

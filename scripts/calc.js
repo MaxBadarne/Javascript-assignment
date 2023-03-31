@@ -1,4 +1,4 @@
-//basic math functions
+                                    //basic math functions
 function add(a,b){return a+b;}
 function subtract(a,b){return a-b;}
 function multiply(a,b){return a*b;}
@@ -71,8 +71,6 @@ function back_space(){
     set_display(num);
 }
 //                                      LOGIK
-//TODO replace the previous results with ANS maybe ?
-//TODO float numbers, probably will have to disable the button after the first one
 function check_if_non_NAN(){
     x = read_display();
     if(x !== x) {return false;}
@@ -105,14 +103,14 @@ function calculate(number_1,number_2,operation){
     }
 }
 function equals(){
-    if(count > 2){
+    if(count > 1){
         set_history("ANS");
         count=0;
     }
     let number_2 = read_display();
     if(operation== "divi" && number_2 == 0 ){
         set_display(5318008);
-        set_history("ERROR! \n Cannot devide by 0");
+        set_history("INVALID");
         return 0;
     }
     if(check_if_non_NAN()){
@@ -128,14 +126,7 @@ function equals(){
     }
     else{set_display("")}
 }
-//                              setters and getters
-//either i dont know how to implement them in js or they just dont work!!
-function get_number_1(){
-    return this.number_1;
-}
-function set_number_1(number){
-    number_1 = number;
-}
+/*
 //                              Key listener
 function key_pressed(E){
     if (E.code =="Space") {
@@ -158,3 +149,14 @@ function key_pressed(E){
         back_space();
     }
 }
+/*
+/*
+//                              setters and getters
+//To be used in case classes were used
+function get_number_1(){
+    return this.number_1;
+}
+function set_number_1(number){
+    number_1 = number;
+}
+*/
