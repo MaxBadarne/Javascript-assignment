@@ -1,3 +1,2 @@
-# Javascript-assignment
-A calculator app Assignment for a Brainnest Internship
+A calculator app Example
 https://maxbadarne.github.io/Javascript-assignment/
